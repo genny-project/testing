@@ -54,7 +54,7 @@ WF_DR_lOGOUT
     wait until page contains element  xpath=//html/body/div/div/div/div/main/content/div/div/div/div[2]/div[1]/div/div[1]/div[2]/div[2]/div[3]/ul/li[3]    20s
     #wait until page contains element  css=ul.profile-dropdown > li:nth-child(3)   5s
     capture page screenshot  ${screenshot_name}
-    click element  xpath=//*[@id="root"]/div/div/div/main/content/div/div/div/div[2]/div[1]/div/div[2]/div[2]/div[3]/ul/li[3]
+    click element  xpath=//html/body/div/div/div/div/main/content/div/div/div/div[2]/div[1]/div/div[1]/div[2]/div[2]/div[3]/ul/li[3]
     wait until page contains element  css=div.login-container  30
     capture page screenshot  ${screenshot_name}
 
