@@ -20,10 +20,12 @@ Initialize System
     set screenshot directory  ${screenshot_path}
     capture page screenshot  ${screenshot_name}
 
+WF_DR_AUTH_REDIRECT
+    Location Should Contain   bouncer
 
 WF_DR_LOGIN
     [Arguments]   ${username}   ${password}
-    wait until page contains element  id=username   20s
+    wait until page contains element  id=username   10
     sleep  5s
     capture page screenshot  ${screenshot_name}
     WF_DR_LOGIN_ENTERUSERNAME  ${username}
@@ -47,15 +49,15 @@ WF_DR_LOGIN_CLICKLOGIN
     click element  xpath=//*[@id="kc-form"]/form/div/div[3]/div[4]/button
 
 WF_DR_SUCCESSFUL_LOGIN
-    wait until page contains element  xpath=//*[@id="root"]/div/div/div/main/content/div/div/div/div/div[2]/div/div[1]/div/div/div[1]/div/div[2]/div/div/span/div/span  15s
+    wait until page contains element  css=.grid.header.main-header > div > div:nth-child(1) > .label > span.label-text  15
     capture page screenshot  ${screenshot_name}
 
 WF_DR_lOGOUT
-    click element  xpath=//*[@id="root"]/div/div/div/main/content/div/div/div/div/div[2]/div/div[1]/div/div/div[1]/div/div[2]/div/div/span/div/span
-    wait until page contains element  css=.dropdown-profile > li:nth-child(3)
+    click element  css=div.dropdown > div.dropdown-header > span
+    wait until page contains element  css=.dropdown-profile > li:nth-child(3)  2
     capture page screenshot  ${screenshot_name}
     click element  css=.dropdown-profile > li:nth-child(3)
-    wait until page contains element  css=div.login-container  15
+    wait until page contains element  css=div.login-container  10
     capture page screenshot  ${screenshot_name}
 
 WF_DR_LOGIN_USERLOGIN_TEST_INVALID_CREDENTIALS
@@ -63,7 +65,7 @@ WF_DR_LOGIN_USERLOGIN_TEST_INVALID_CREDENTIALS
   WF_DR_LOGIN_ENTERUSERNAME  ${username}
   WF_DR_LOGIN_ENTERPASSWORD  ${password}
   WF_DR_LOGIN_CLICKLOGIN
-  wait until page contains element  css=.alert.alert-error   5s
+  wait until page contains element  css=.alert.alert-error   5
   capture page screenshot  ${screenshot_name}
 
 Terminate System
