@@ -45,18 +45,26 @@ WF_DR_LOGIN_ENTERPASSWORD
 WF_DR_LOGIN_CLICKLOGIN
     wait until element is enabled  xpath=//*[@id="kc-form"]/form/div/div[3]/div[4]/button   10
     click element  xpath=//*[@id="kc-form"]/form/div/div[3]/div[4]/button
-    sleep  10s
-    wait until page contains element  css=div.profile  30s
+
+WF_DR_SUCCESSFUL_LOGIN
+    wait until page contains element  xpath=//*[@id="root"]/div/div/div/main/content/div/div/div/div/div[2]/div/div[1]/div/div/div[1]/div/div[2]/div/div/span/div/span  15s
     capture page screenshot  ${screenshot_name}
 
 WF_DR_lOGOUT
-    click element  css=div.profile
-    wait until page contains element  xpath=//html/body/div/div/div/div/main/content/div/div/div/div[2]/div[1]/div/div[1]/div[2]/div[2]/div[3]/ul/li[3]    20s
-    #wait until page contains element  css=ul.profile-dropdown > li:nth-child(3)   5s
+    click element  xpath=//*[@id="root"]/div/div/div/main/content/div/div/div/div/div[2]/div/div[1]/div/div/div[1]/div/div[2]/div/div/span/div/span
+    wait until page contains element  css=.dropdown-profile > li:nth-child(3)
     capture page screenshot  ${screenshot_name}
-    click element  xpath=//html/body/div/div/div/div/main/content/div/div/div/div[2]/div[1]/div/div[1]/div[2]/div[2]/div[3]/ul/li[3]
-    wait until page contains element  css=div.login-container  30
+    click element  css=.dropdown-profile > li:nth-child(3)
+    wait until page contains element  css=div.login-container  15
     capture page screenshot  ${screenshot_name}
+
+WF_DR_LOGIN_USERLOGIN_TEST_INVALID_CREDENTIALS
+  [Arguments]   ${username}   ${password}
+  WF_DR_LOGIN_ENTERUSERNAME  ${username}
+  WF_DR_LOGIN_ENTERPASSWORD  ${password}
+  WF_DR_LOGIN_CLICKLOGIN
+  wait until page contains element  css=.alert.alert-error   5s
+  capture page screenshot  ${screenshot_name}
 
 Terminate System
     sleep  20s

@@ -22,19 +22,16 @@ ${screenshot_name}  WF_DR_USERLOGIN_{index}.png
 01_WF_USERLOGIN_TEST_VALID_CREDENTIALS
    [Tags]  SmokeTest
    WF_DR_LOGIN  ${username_dr}  ${password_dr}
+   WF_DR_SUCCESSFUL_LOGIN
 
 02_WF_lOGOUT
    [Tags]  SmokeTest
    sleep  5s
    WF_DR_lOGOUT
 
-#03_WF_USERLOGIN_TEST_INVALID_CREDENTIALS
-#   [Tags]  SmokeTest
-#   sleep  10s
-#   input text  id=username   user1
-#   input password  id=password   pass
-#   wait until page contains element  css=div.alert.alert-error   5s
-#   capture page screenshot  SMOKE_TEST_USERKLOGIN_INVALID_CREDENTIALS
+03_WF_USERLOGIN_TEST_INVALID_CREDENTIALS
+  [Tags]  SmokeTest
+  WF_DR_LOGIN_USERLOGIN_TEST_INVALID_CREDENTIALS  ${username_dr_invalid}  ${password_dr_invalid}
 
 
 
