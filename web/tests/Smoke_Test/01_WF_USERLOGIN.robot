@@ -28,7 +28,7 @@ ${screenshot_name}  WF_DR_USERLOGIN_{index}.png
    WF_DR_LOGIN  ${username_dr}  ${password_dr}
    WF_DR_SUCCESSFUL_LOGIN
 
-03_WF_lOGOUT
+03_WF_LOGOUT
    [Tags]  SmokeTest
    sleep  5s
    WF_DR_lOGOUT
