@@ -5,5 +5,5 @@ else
    version="${1}"
 fi
 
-docker build -t channel40/testing:${version} .
+docker build -t genny-project/robot-testing:${version} .
 

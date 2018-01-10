@@ -21,7 +21,7 @@ Initialize System
     capture page screenshot  ${screenshot_name}
 
 WF_DR_AUTH_REDIRECT
-    Location Should Contain   bouncer
+    Location Should Contain   auth
 
 WF_DR_LOGIN
     [Arguments]   ${username}   ${password}
@@ -52,7 +52,7 @@ WF_DR_SUCCESSFUL_LOGIN
     wait until page contains element  css=.grid.header.main-header > div > div:nth-child(1) > .label > span.label-text  15
     capture page screenshot  ${screenshot_name}
 
-WF_DR_lOGOUT
+WF_DR_LOGOUT
     click element  css=div.dropdown > div.dropdown-header > span
     wait until page contains element  css=.dropdown-profile > li:nth-child(3)  2
     capture page screenshot  ${screenshot_name}
