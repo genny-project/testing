@@ -13,6 +13,7 @@ ${screenshot_name}  WF_DR_{index}.png
 
 *** Keywords ***
 Initialize System
+    sleep  30s
     ${url}=    Get Environment Variable  WEB_URL
     open browser  ${url}  ${browser}
     maximize browser window
