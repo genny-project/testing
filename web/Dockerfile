@@ -8,7 +8,6 @@ RUN set -x \
 
 
 COPY ./tests /home/robot-framework/tests
-COPY ./reports /home/robot-framework-logs
 COPY ./resources /home/robot-framework/resources
 
 
