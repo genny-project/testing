@@ -13,7 +13,7 @@ ${screenshot_name}  WF_DR_{index}.png
 
 *** Keywords ***
 Initialize System
-    sleep  30s
+    sleep  5s
     ${url}=    Get Environment Variable  WEB_URL
     open browser  ${url}  ${browser}
     maximize browser window
@@ -55,9 +55,9 @@ WF_DR_SUCCESSFUL_LOGIN
 
 WF_DR_LOGOUT
     click element  css=div.dropdown > div.dropdown-header > span
-    wait until page contains element  css=.dropdown-profile > li:nth-child(3)  2
+    wait until page contains element  css=.dropdown-profile > li:last-child  2
     capture page screenshot  ${screenshot_name}
-    click element  css=.dropdown-profile > li:nth-child(3)
+    click element  css=.dropdown-profile > li:last-child
     wait until page contains element  css=div.login-container  10
     capture page screenshot  ${screenshot_name}
 
