@@ -1,0 +1,5 @@
+.DS_Store
+*.log
+web/screenshots
+web/tests/*/*.html
+web/tests/*/*.xml

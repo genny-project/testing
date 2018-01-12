@@ -6,10 +6,10 @@ else
    version="${1}"
 fi
 
-docker push channel40/testing:"${version}"
+docker push gennyproject/robot:"${version}"
 
 _now=$(date +"%Y%m%d")
-docker tag  channel40/testing:"${version}" channel40/testing:$_now
-docker tag  channel40/testing:"${version}" channel40/testing:latest
-docker push channel40/testing:$_now 
-docker push channel40/testing:latest 
+docker tag  gennyproject/robot:"${version}" gennyproject/robot:$_now
+docker tag  gennyproject/robot:"${version}" gennyproject/robot:latest
+docker push gennyproject/robot:$_now 
+docker push gennyproject/robot:latest 

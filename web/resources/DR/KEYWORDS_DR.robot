@@ -13,6 +13,7 @@ ${screenshot_name}  WF_DR_{index}.png
 
 *** Keywords ***
 Initialize System
+    sleep  30s
     ${url}=    Get Environment Variable  WEB_URL
     open browser  ${url}  ${browser}
     maximize browser window
@@ -20,10 +21,12 @@ Initialize System
     set screenshot directory  ${screenshot_path}
     capture page screenshot  ${screenshot_name}
 
+WF_DR_AUTH_REDIRECT
+    Location Should Contain   auth
 
 WF_DR_LOGIN
     [Arguments]   ${username}   ${password}
-    wait until page contains element  id=username   20s
+    wait until page contains element  id=username   10
     sleep  5s
     capture page screenshot  ${screenshot_name}
     WF_DR_LOGIN_ENTERUSERNAME  ${username}
@@ -43,20 +46,28 @@ WF_DR_LOGIN_ENTERPASSWORD
     capture page screenshot  ${screenshot_name}
 
 WF_DR_LOGIN_CLICKLOGIN
-    wait until element is enabled  xpath=//*[@id="kc-form"]/form/div/div[3]/div[4]/button   10
-    click element  xpath=//*[@id="kc-form"]/form/div/div[3]/div[4]/button
-    sleep  10s
-    wait until page contains element  css=div.profile  30s
+    wait until element is enabled  css=.login-container > .input-detail > .input-submit > button   10
+    click element  css=.login-container > .input-detail > .input-submit > button
+
+WF_DR_SUCCESSFUL_LOGIN
+    wait until page contains element  css=.grid.header.main-header > div > div:nth-child(1) > .label > span.label-text  15
     capture page screenshot  ${screenshot_name}
 
-WF_DR_lOGOUT
-    click element  css=div.profile
-    wait until page contains element  xpath=//html/body/div/div/div/div/main/content/div/div/div/div[2]/div[1]/div/div[1]/div[2]/div[2]/div[3]/ul/li[3]    20s
-    #wait until page contains element  css=ul.profile-dropdown > li:nth-child(3)   5s
+WF_DR_LOGOUT
+    click element  css=div.dropdown > div.dropdown-header > span
+    wait until page contains element  css=.dropdown-profile > li:nth-child(3)  2
     capture page screenshot  ${screenshot_name}
-    click element  xpath=//html/body/div/div/div/div/main/content/div/div/div/div[2]/div[1]/div/div[1]/div[2]/div[2]/div[3]/ul/li[3]
-    wait until page contains element  css=div.login-container  30
+    click element  css=.dropdown-profile > li:nth-child(3)
+    wait until page contains element  css=div.login-container  10
     capture page screenshot  ${screenshot_name}
+
+WF_DR_LOGIN_USERLOGIN_TEST_INVALID_CREDENTIALS
+  [Arguments]   ${username}   ${password}
+  WF_DR_LOGIN_ENTERUSERNAME  ${username}
+  WF_DR_LOGIN_ENTERPASSWORD  ${password}
+  WF_DR_LOGIN_CLICKLOGIN
+  wait until page contains element  css=.alert.alert-error   5
+  capture page screenshot  ${screenshot_name}
 
 Terminate System
     sleep  20s
