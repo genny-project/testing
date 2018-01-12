@@ -11,4 +11,4 @@ else
    WEB_URL="${2}"
 fi
 echo "WEB_URL="$WEB_URL
-docker run -t --rm -e WEB_URL=${WEB_URL} -v $PWD/reports:/home/robot-framework-logs -v $PWD/screenshots:/home/robot-framework/screenshots gennyproject/robot:${version} 
+docker run --rm -e WEB_URL=${WEB_URL} -v $PWD/reports:/home/robot-framework-logs -v $PWD/screenshots:/home/robot-framework/screenshots gennyproject/robot:${version} 
