@@ -37,3 +37,5 @@ escapedText=$(echo $text | sed 's/"/\"/g' | sed "s/'/\'/g" )
 json="{\"attachments\":[{\"color\":\"$color\" , \"text\": \"$escapedText\"}]}"
 
 curl -s -d "payload=$json" "$webhook_url"
+
+echo "sent $color message to slack"
