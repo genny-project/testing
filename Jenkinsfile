@@ -23,10 +23,10 @@ pipeline {
 		}	
 	}
 	post {
-		success: {
+		success {
 			sh "./slack.sh https://hooks.slack.com/services/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 good Robot says: Build ${BUILD_NUMBER} Success!"
 		}
-		failure: {
+		failure {
 			sh "./slack.sh https://hooks.slack.com/services/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 good Robot says: Build ${BUILD_NUMBER} Success!"
 		}
 	}
