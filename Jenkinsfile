@@ -9,6 +9,8 @@ node('master') {
 		}
 	}
 	stage('Testing') {
-		sh "./run-docker-jenkins.sh ${BUILD_NUMBER}"
+		dir('web') {
+			sh "./run-docker-jenkins.sh ${BUILD_NUMBER}"
+		}
 	}
 }
