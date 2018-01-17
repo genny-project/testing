@@ -1,4 +1,4 @@
-pipeline {
+node('master') {
     stage ('Clone') {
     	checkout scm
     }
