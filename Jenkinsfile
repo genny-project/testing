@@ -1,5 +1,10 @@
 pipeline {
 	agent any
+	triggers {
+		upstream(
+			upstreamProjects: 'start-robot-test', threshold: hudson.model.Result.SUCCESS
+		)
+	}
 	stages {
 	    stage ('Clone') {
 		    steps {
