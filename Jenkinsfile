@@ -1,8 +1,13 @@
 node('master') {
+    stage ('Clone') {
+    	checkout scm
+    }
 	stage('Build') {
-		sh "web/build-docker.sh"
+		sh "cd web"
+		sh "./build-docker.sh ${BUILD_NUMBER}"
+		sh "./push.sh ${BUILD_NUMBER}"
 	}
 	stage('Testing') {
-		sh "web/run-docker-jenkins.sh"
+		sh "./run-docker-jenkins.sh ${BUILD_NUMBER}"
 	}
 }
