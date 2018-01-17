@@ -4,7 +4,6 @@ node('master') {
     }
 	stage('Build') {
 		dir('web') {
-			sh "cd web"
 			sh "./build-docker.sh ${BUILD_NUMBER}"
 			sh "./push.sh ${BUILD_NUMBER}"
 		}
