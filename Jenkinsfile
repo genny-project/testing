@@ -2,7 +2,7 @@ pipeline {
 	agent any
 	triggers {
 		upstream(
-			upstreamProjects: 'start-robot-test', 
+			upstreamProjects: 'pipeline-fanin-trigger', 
 			threshold: hudson.model.Result.SUCCESS
 		)
 	}
