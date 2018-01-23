@@ -4,7 +4,7 @@ Library   OperatingSystem
 *** Variables ***
 
 ${url}  http://v2.channel40.com.au       #http://channel40-web-dev.channel40.com.au:81/
-${browser}  firefox
+${browser}  %{BROWSER}
 
 #Screenshot Path
 ${screenshot_path_docker}  /home/robot-framework/screenshots

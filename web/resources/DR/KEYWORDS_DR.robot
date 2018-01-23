@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation   List of common keywords/methods
 
-Library   Selenium2Library
+Library   ExtendedSelenium2Library
 Library   OperatingSystem
 
 Resource  ./VARIABLE_DR.robot
@@ -16,7 +16,6 @@ Initialize System
     sleep  5s
     ${url}=    Get Environment Variable  WEB_URL
     open browser  ${url}  ${browser}
-    maximize browser window
     sleep  5s
     set screenshot directory  ${screenshot_path}
     capture page screenshot  ${screenshot_name}
@@ -70,6 +69,7 @@ WF_DR_LOGIN_USERLOGIN_TEST_INVALID_CREDENTIALS
   capture page screenshot  ${screenshot_name}
 
 Terminate System
-    sleep  20s
+    sleep  5s
+    Warn Any Javascript Errors
     close browser
 

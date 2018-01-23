@@ -1,13 +1,17 @@
-FROM rohitcs/rohit-robot
+FROM ppodgorsek/robot-framework:3.0.6
 
 # Install necessary packages
-RUN set -x \
-    && apt-get update --quiet \
-    && apt-get install --quiet --yes --no-install-recommends jq  iputils-ping vim  \
-    && apt-get clean
+#RUN set -x \
+#    && apt-get update --quiet \
+#    && apt-get install --quiet --yes --no-install-recommends jq  iputils-ping vim \
+#    && apt-get clean
 
+RUN dnf upgrade -y
 
-COPY ./tests /home/robot-framework/tests
-COPY ./resources /home/robot-framework/resources
+RUN pip install robotframework-extendedselenium2library
 
+COPY ./tests /opt/robotframework/tests
+COPY ./resources /opt/robotframework/tests/resources
 
+RUN mv /usr/lib64/chromium-browser/chromium-browser /usr/lib64/chromium-browser/chromium-browser-original\
+	&& ln -sfv /opt/robotframework/bin/chromium-browser /usr/lib64/chromium-browser/chromium-browser

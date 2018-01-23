@@ -1,11 +1,11 @@
 *** Settings ***
 Documentation   Tests to verify that the user can login with valid credentials
 
-Library  Selenium2Library
+Library  ExtendedSelenium2Library
 Library  OperatingSystem
 
-Resource  ../../resources/DR/VARIABLE_DR.robot
-Resource  ../../resources/DR/KEYWORDS_DR.robot
+Resource  ../resources/DR/VARIABLE_DR.robot
+Resource  ../resources/DR/KEYWORDS_DR.robot
 
 Suite Setup  INITIALIZE_SETUP
 Suite Teardown  Terminate System
@@ -48,5 +48,4 @@ INITIALIZE_SETUP
    run keyword if  '${status}' == 'True'  Empty Directory  ${screenshot_path}
 
    set screenshot directory  ${screenshot_path}
-   set browser implicit wait  20
 
