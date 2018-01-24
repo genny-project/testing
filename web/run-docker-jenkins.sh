@@ -12,4 +12,4 @@ else
 fi
 echo "WEB_URL="$WEB_URL
 echo "reports="$PWD/reports
-docker run --rm -e WEB_URL=${WEB_URL} -v $PWD/reports:/home/robot-framework-logs -v $PWD/screenshots:/home/robot-framework/screenshots gennyproject/robot:${version} 
+docker run --rm -e WEB_URL=http://v2.channel40.com.au -e BROWSER=chrome -v $PWD/reports:/opt/robotframework/reports -v $PWD/screenshots:/home/robotframework/screenshots gennyproject/robot:latest
