@@ -12,12 +12,17 @@ pipeline {
 		    	checkout scm
 		    }
 	    }
-		stage('Build') {
+//		stage('Build') {
+//			steps {
+//				dir('web') {
+//					sh "./build-docker.sh ${BUILD_NUMBER}"
+//					sh "./push.sh ${BUILD_NUMBER}"
+//				}		
+//			}
+//		}
+		stage('Pull') {
 			steps {
-				dir('web') {
-					sh "./build-docker.sh ${BUILD_NUMBER}"
-					sh "./push.sh ${BUILD_NUMBER}"
-				}		
+				sh "docker pull gennyproject/robot:latest"
 			}
 		}
 		stage('Testing') {
