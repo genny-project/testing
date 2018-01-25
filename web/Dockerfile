@@ -13,6 +13,7 @@ RUN pip install beautifulsoup4
 
 COPY ./tests /opt/robotframework/tests
 COPY ./resources /opt/robotframework/tests/resources
+COPY ../results-parse.py /opt/robotframework/bin/
 
 RUN mv /usr/lib64/chromium-browser/chromium-browser /usr/lib64/chromium-browser/chromium-browser-original\
 	&& ln -sfv /opt/robotframework/bin/chromium-browser /usr/lib64/chromium-browser/chromium-browser
