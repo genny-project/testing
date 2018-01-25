@@ -18,7 +18,7 @@ failflag = False
 for status in soup.find_all('status'):
 	if status.has_attr('critical'):
 	    results['attachments'].append({
-		'text': '{0:50} {1}'.format(
+		'text': '`{0:40}`  {1}'.format(
             status.parent['name'], 
             '👍' if status['status'] == 'PASS' else '🔥'
             ),
