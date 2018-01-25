@@ -1,4 +1,5 @@
 #!/usr/bin/env python2
+# -*- coding: UTF-8 -*-
 import sys
 import os
 import json
@@ -10,17 +11,28 @@ contents = fp.read()
 
 soup = BeautifulSoup(contents, 'html.parser')
 
-results = {'text': 'Smoke Test Complete!', 'attachments':[]}
+results = {'attachments':[]}
+
+failflag = False
 
 for status in soup.find_all('status'):
 	if status.has_attr('critical'):
-		results['attachments'].append({
-			'text': '{0:50} {1}'.format(status.parent['name'], status['status']),
-			'color': 'good' if status['status'] == 'PASS' else 'danger'
-			})
+	    results['attachments'].append({
+		'text': '{0:50} {1}'.format(
+            status.parent['name'], 
+            '👍' if status['status'] == 'PASS' else '🔥'
+            ),
+		'color': 'good' if status['status'] == 'PASS' else 'danger'
+		})
+
+        if status['status'] != 'PASS': failflag = True
+
+
+results['messages'] = '🔥' if failflag else '👍👍👍'
+print results['messages']
 
 response = requests.post(
-    os.environ['WEBHOOK_URL'], data=json.dumps(results),
+    os.environ['SLACK_WEBHOOK'], data=json.dumps(results),
     headers={'Content-Type': 'application/json'}
 )
 
