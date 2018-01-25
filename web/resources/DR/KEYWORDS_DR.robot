@@ -65,7 +65,7 @@ WF_DR_LOGIN_USERLOGIN_TEST_INVALID_CREDENTIALS
   WF_DR_LOGIN_ENTERUSERNAME  ${username}
   WF_DR_LOGIN_ENTERPASSWORD  ${password}
   WF_DR_LOGIN_CLICKLOGIN
-  wait until page contains element  css=.alert.alert-errorrrrr   5
+  wait until page contains element  css=.alert.alert-error   5
   capture page screenshot  ${screenshot_name}
 
 Terminate System
