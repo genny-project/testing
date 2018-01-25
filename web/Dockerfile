@@ -9,6 +9,7 @@ FROM ppodgorsek/robot-framework:3.0.6
 RUN dnf upgrade -y
 
 RUN pip install robotframework-extendedselenium2library
+RUN pip install beautifulsoup4
 
 COPY ./tests /opt/robotframework/tests
 COPY ./resources /opt/robotframework/tests/resources
