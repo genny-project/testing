@@ -28,10 +28,8 @@ for status in soup.find_all('status'):
         if status['status'] != 'PASS': failflag = True
 
 
-results['text'] = '🔥' if failflag else '👍👍👍'
+results['text'] = '{0}{1}'.format('🔥' if failflag else '👍👍👍', os.environ['WEB_URL'])
 print results['text']
-
-print results
 
 response = requests.post(
     os.environ['SLACK_WEBHOOK'], data=json.dumps(results),
