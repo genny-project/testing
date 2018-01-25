@@ -1,5 +1,6 @@
 #!/usr/bin/env python2
 import sys
+import os
 import json
 import requests
 from bs4 import BeautifulSoup
@@ -19,7 +20,7 @@ for status in soup.find_all('status'):
 			})
 
 response = requests.post(
-    webhook_url, data=json.dumps(results),
+    os.environ['WEBHOOK_URL'], data=json.dumps(results),
     headers={'Content-Type': 'application/json'}
 )
 
