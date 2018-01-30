@@ -49,7 +49,7 @@ WF_DR_LOGIN_CLICKLOGIN
     click element  css=.login-container > .input-detail > .input-submit > button
 
 WF_DR_SUCCESSFUL_LOGIN
-    wait until page contains element  css=.grid.header.main-header > div > div:nth-child(1) > .label > span.label-text  15
+    wait until page contains element  css=.grid.header.main-header > div > div:nth-child(1) > h3  15
     capture page screenshot  ${screenshot_name}
 
 WF_DR_LOGOUT
