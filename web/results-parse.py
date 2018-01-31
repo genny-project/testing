@@ -20,7 +20,7 @@ for status in soup.find_all('status'):
 	    results['attachments'].append({
 		'text': '`{0:40}`  {1}'.format(
             status.parent['name'], 
-            '👍' if status['status'] == 'PASS' else '🔥'
+            ':goodstuff:' if status['status'] == 'PASS' else '🔥'
             ),
 		'color': 'good' if status['status'] == 'PASS' else 'danger'
 		})
@@ -28,7 +28,7 @@ for status in soup.find_all('status'):
         if status['status'] != 'PASS': failflag = True
 
 
-results['text'] = '{0}{1}'.format('🔥' if failflag else '👍👍👍', os.environ['WEB_URL'])
+results['text'] = '{0}{1}'.format('🔥' if failflag else ':goodstuff:', os.environ['WEB_URL'])
 print results['text']
 
 response = requests.post(
