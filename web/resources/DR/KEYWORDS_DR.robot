@@ -20,6 +20,24 @@ Initialize System
     set screenshot directory  ${screenshot_path}
     capture page screenshot  ${screenshot_name}
 
+WF_DR_REGISTER
+    wait until page contains element  clss:.username 5
+    capture page screenshot  ${screenshot_name}
+
+    click element css:.username
+    Location Should Contain  registration
+    capture page screenshot  ${screenshot_name}
+
+    input text     id=email  ${new_email_dr}
+    input text     id=firstName  ${new_firstname_dr}
+    input text     id=lastName  ${new_lastname_dr}
+    input text     id=email  ${new_email_dr}
+    input text     id=password  ${new_password_dr}
+    input text     id=password-confirm  ${new_password_dr}
+    capture page screenshot  ${screenshot_name}
+    
+    click element  css:button[type=submit]
+
 WF_DR_AUTH_REDIRECT
     Location Should Contain   auth
 
@@ -72,4 +90,3 @@ Terminate System
     sleep  5s
     Warn Any Javascript Errors
     close browser
-
