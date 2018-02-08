@@ -15,6 +15,7 @@ ${screenshot_name}  WF_DR_{index}.png
 Initialize System
     sleep  5s
     ${url}=    Get Environment Variable  WEB_URL
+    ${keycloak_url}=  Get Environment Variable KEYCLOAKURL
     open browser  ${url}  ${browser}
     sleep  5s
     set screenshot directory  ${screenshot_path}
