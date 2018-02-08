@@ -11,11 +11,8 @@ Suite Setup  INITIALIZE_SETUP
 Suite Teardown  Terminate System
 
 *** Variables ***
-${screenshot_path_docker}  /home/robot-framework/screenshots/02_WF_USERLOGIN
-${screenshot_path_local}  screenshots/02_WF_USERLOGIN
-
-${screenshot_path}  ${screenshot_path_docker}  #Options: 'screenshot_path_local' or 'screenshot_path_docker'
-${screenshot_name}  WF_DR_USERLOGIN_{index}.png
+${screenshot_path}  /opt/robotframework/reports/screenshots/02_WF_USERLOGIN
+${screenshot_name}  WF_USERLOGIN{index}.png
 
 
 *** Test Cases ***

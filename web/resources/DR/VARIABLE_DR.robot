@@ -3,12 +3,9 @@ Library   OperatingSystem
 
 *** Variables ***
 
-${url}  http://v2.channel40.com.au
+${url}  %{WEB_URL}
 ${browser}  %{BROWSER}
 
-#Screenshot Path
-${screenshot_path_docker}  /home/robot-framework/screenshots
-${screenshot_path_local}  screenshots
 
 #valid creds
 ${email_dr}               truckdriver12341@gmail.com

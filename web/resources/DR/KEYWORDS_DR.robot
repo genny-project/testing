@@ -8,7 +8,7 @@ Resource  ./VARIABLE_DR.robot
 
 
 *** Variables ***
-${screenshot_path}  ${screenshot_path_local}  #Options: 'screenshot_path_local' or 'screenshot_path_docker'
+${screenshot_path}  /opt/robotframework/reports/screenshots
 ${screenshot_name}  WF_DR_{index}.png
 
 *** Keywords ***
@@ -21,10 +21,10 @@ Initialize System
     capture page screenshot  ${screenshot_name}
 
 WF_DR_REGISTER
-    wait until page contains element  clss:.username 5
+    wait until page contains element  css=.button-register  5
     capture page screenshot  ${screenshot_name}
 
-    click element css:.username
+    click element css:.button-register
     Location Should Contain  registration
     capture page screenshot  ${screenshot_name}
 
@@ -35,7 +35,7 @@ WF_DR_REGISTER
     input text     id=password  ${new_password_dr}
     input text     id=password-confirm  ${new_password_dr}
     capture page screenshot  ${screenshot_name}
-    
+
     click element  css:button[type=submit]
 
 WF_DR_AUTH_REDIRECT
