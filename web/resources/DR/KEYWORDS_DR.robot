@@ -13,6 +13,9 @@ ${screenshot_name}  WF_DR_{index}.png
 
 *** Keywords ***
 Initialize System
+    sleep  5s
+    open browser  ${url}  ${browser}
+    sleep  5s
     set screenshot directory  ${screenshot_path}
     capture page screenshot  ${screenshot_name}
 
@@ -35,12 +38,12 @@ WF_DR_REGISTER
     click element  css:button[type=submit]
 
 WF_DR_AUTH_REDIRECT
-    go to ${url}
+    go to  ${url}
     sleep  5s
     Location Should Contain   auth
 
 WF_DR_AUTH_KEYCLOAK_ADMIN
-    go to ${KEYCLOAKURL}
+    go to  ${KEYCLOAKURL}
     capture page screenshot  ${screenshot_name}
 
 WF_DR_LOGIN
@@ -61,7 +64,7 @@ WF_DR_LOGIN_ENTERUSERNAME
 WF_DR_LOGIN_ENTERPASSWORD
     [Arguments]   ${password}
     input password  id=password    ${password}
-    sleep  1skeycloak
+    sleep  1s
     capture page screenshot  ${screenshot_name}
 
 WF_DR_LOGIN_CLICKLOGIN

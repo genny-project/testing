@@ -22,13 +22,12 @@ ${screenshot_name}  WF_USERREGISTER{index}.png
    #WF_DR_REGISTER
 
 01_WF_USERREGISTER_KEYCLOAK_ADMIN
-  [Tags] register
-  WF_DR_AUTH_KEYCLOAK_ADMIN
+   [Tags]  Register
+   WF_DR_AUTH_KEYCLOAK_ADMIN
 
 *** Keywords ***
 INITIALIZE_SETUP
    Initialize System
-
    ${status}=  run keyword and return status  Directory Should Exist  ${screenshot_path}
    Log  ${status}
    run keyword if  '${status}' == 'True'  Empty Directory  ${screenshot_path}
