@@ -40,7 +40,13 @@ WF_DR_REGISTER
     click element  css:button[type=submit]
 
 WF_DR_AUTH_REDIRECT
+    go to ${url}
+    sleep  5s
     Location Should Contain   auth
+
+WF_DR_AUTH_KEYCLOAK_ADMIN
+    go to ${KEYCLOAKURL}
+    capture page screenshot  ${screenshot_name}
 
 WF_DR_LOGIN
     [Arguments]   ${username}   ${password}
@@ -60,7 +66,7 @@ WF_DR_LOGIN_ENTERUSERNAME
 WF_DR_LOGIN_ENTERPASSWORD
     [Arguments]   ${password}
     input password  id=password    ${password}
-    sleep  1s
+    sleep  1skeycloak
     capture page screenshot  ${screenshot_name}
 
 WF_DR_LOGIN_CLICKLOGIN
