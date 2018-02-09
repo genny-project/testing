@@ -1,4 +1,4 @@
-#!/bin/bash
 PWD=`pwd`
 
-docker run -e WEB_URL=http://v2.channel40.com.au -e BROWSER=chrome -v $PWD/reports:/opt/robotframework/reports -v $PWD/screenshots:/home/robotframework/screenshots gennyproject/robot:latest
+docker pull gennyproject/robot:latest
+docker run -e WEB_URL=$WEB_URL -e KEYCLOAKURL=https://bouncer.outcome-hub.com/auth/admin/master/console/ -e BROWSER=chrome -e SLACK_WEBHOOK=https://hooks.slack.com/ -v $PWD/reports:/opt/robotframework/reports gennyproject/robot:latest

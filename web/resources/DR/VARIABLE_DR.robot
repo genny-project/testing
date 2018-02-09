@@ -4,6 +4,7 @@ Library   OperatingSystem
 *** Variables ***
 
 ${url}  %{WEB_URL}
+${keycloak_url}  %{KEYCLOAK_URL}
 ${browser}  %{BROWSER}
 
 
