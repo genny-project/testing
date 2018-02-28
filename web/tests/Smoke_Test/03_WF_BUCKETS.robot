@@ -11,16 +11,21 @@ Suite Setup  INITIALIZE_SETUP
 Suite Teardown  Terminate System
 
 *** Variables ***
-${screenshot_path}  /opt/robotframework/reports/screenshots/02_WF_USERLOGIN
-${screenshot_name}  WF_USERLOGIN{index}.png
+${screenshot_path}  /opt/robotframework/reports/screenshots/03_WF_BUCKETS
+${screenshot_name}  WF_BUCKETS{index}.png
 
 
 *** Test Cases ***
-01_WF_USERLOGIN_TEST_BUCKETS
-   [Tags]  Login
+01_WF_BUCKETS_LOGIN
+   [Tags]  Buckets
    WF_DR_AUTH_REDIRECT
    WF_DR_LOGIN  ${username_dr}  ${password_dr}
    WF_DR_SUCCESSFUL_LOGIN
+
+02_WF_BUCKETS_NEWLOAD
+    [Tags]  Buckets
+    WF_DR_OPEN_ADD_LOAD
+    WF_DR_ADD_LOAD
 
 
 *** Keywords ***
