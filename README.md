@@ -11,3 +11,4 @@ Clone the repo, cd to web and run
 ```
 
 Substituting x for your ip.
+You may have to add your ip address to keycloak's CORS fields.
