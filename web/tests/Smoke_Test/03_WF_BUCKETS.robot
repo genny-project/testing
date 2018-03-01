@@ -27,6 +27,10 @@ ${screenshot_name}  WF_BUCKETS{index}.png
     WF_DR_OPEN_ADD_LOAD
     WF_DR_ADD_LOAD
 
+03_WF_BUCKETS_CHECKLOAD
+    [Tags] Buckets
+    WF_DR_CHECK_LOAD
+
 
 *** Keywords ***
 INITIALIZE_SETUP

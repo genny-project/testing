@@ -15,7 +15,7 @@ ${screenshot_name}  WF_DR_{index}.png
 Initialize System
     Log To Console  opening ${web_url}
     open browser  ${web_url}  ${browser}
-    Set Window Size  1920  1080
+    Set Window Size  1280  720
     set screenshot directory  ${screenshot_path}
     capture page screenshot  ${screenshot_name}
 
@@ -102,7 +102,7 @@ WF_DR_ADD_LOAD
   input text  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(1) > div > div > div > div > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div:nth-child(2) > div > textarea  This is a test load
   capture page screenshot  ${screenshot_name}
 
-  Click Element  css=#downshift-input-3
+  Click Element  css=#downshift-1-input
   wait until page contains element  css=#downshift-1-item-10  2
   Click Element  css=#downshift-1-item-10
   capture page screenshot  ${screenshot_name}
@@ -153,18 +153,28 @@ WF_DR_ADD_LOAD
   Click Element  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div > div > div.grid > div > div:nth-child(2) > div > button
   capture page screenshot  ${screenshot_name}
 
-  sleep  5s
+  sleep  10s
+
+  capture page screenshot  ${screenshot_name}
+
+  reload page
+
+  sleep 10s
+
+  Element Text Should Be  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div.tab-container-content > div > div > div.bucket-column.bucket-number-1 > div.bucket.size-lg > div > div > div > div > div > div.grid > div:nth-child(1) > div:nth-child(2) > h5  Test Load
+  Element Text Should Be  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div.tab-container-content > div > div > div.bucket-column.bucket-number-1 > div.bucket.size-lg > div > div > div > div > div > div.grid > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(1) > span  $1,000
+
+  Element Text Should Be  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div.tab-container-content > div > div > div.bucket-column.bucket-number-1 > div.bucket.size-lg > div > div > div > div > div > div.grid > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > span:nth-child(2)  Melbourne
+  Element Text Should Be  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div.tab-container-content > div > div > div.bucket-column.bucket-number-1 > div.bucket.size-lg > div > div > div > div > div > div.grid > div:nth-child(1) > div:nth-child(2) > div:nth-child(3) > span:nth-child(4)  VIC
+
+  Element Text Should Be  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div.tab-container-content > div > div > div.bucket-column.bucket-number-1 > div.bucket.size-lg > div > div > div > div > div > div.grid > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > span:nth-child(2)  Sydney
+  Element Text Should Be  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div.tab-container-content > div > div > div.bucket-column.bucket-number-1 > div.bucket.size-lg > div > div > div > div > div > div.grid > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > span:nth-child(4)  NSW
+
 
   capture page screenshot  ${screenshot_name}
 
 
 
-
-
-
-
-
 Terminate System
-    sleep  5s
     Warn Any Javascript Errors
     close browser
