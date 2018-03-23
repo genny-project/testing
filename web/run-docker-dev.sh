@@ -32,7 +32,7 @@ docker run --rm -d --name robot-dev  \
   -v $PWD/resources:/opt/robotframework/tests/resources  \
   -v $PWD/tests:/opt/robotframework/tests  \
   -v $PWD/reports:/opt/robotframework/reports  \
-  -v /tmp:/tmp \
+  -v /tmp/vnc:/tmp/vnc  \
   gennyproject/robot:latest
 
 docker logs -f robot-dev

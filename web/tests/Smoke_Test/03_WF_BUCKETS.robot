@@ -21,6 +21,7 @@ ${screenshot_name}  WF_BUCKETS{index}.png
    WF_DR_AUTH_REDIRECT
    WF_DR_LOGIN  ${username_dr}  ${password_dr}
    WF_DR_SUCCESSFUL_LOGIN
+   WF_DR_TANDC
 
 02_WF_BUCKETS_NEWLOAD
     [Tags]  Buckets

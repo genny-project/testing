@@ -15,9 +15,10 @@ ${screenshot_name}  WF_DR_{index}.png
 Initialize System
     Log To Console  opening ${web_url}
     open browser  ${web_url}  ${browser}
-    Set Window Size  1280  720
+    Set Window Size  1920  1080
     set screenshot directory  ${screenshot_path}
     capture page screenshot  ${screenshot_name}
+    sleep  30s
 
 WF_DR_REGISTER
     wait until page contains element  css=.button-register  5
@@ -53,6 +54,10 @@ WF_DR_LOGIN
     WF_DR_LOGIN_ENTERUSERNAME  ${username}
     WF_DR_LOGIN_ENTERPASSWORD  ${password}
     WF_DR_LOGIN_CLICKLOGIN
+
+WF_DR_TANDC
+    wait until page contains element  css=.input-terms-main
+    Execute JavaScript  document.querySelector('.input-terms-main').scrollHeight = document.querySelector('.input-terms-main').scrollTop + document.querySelector('.input-terms-main').offsetHeight
 
 WF_DR_LOGIN_ENTERUSERNAME
     [Arguments]   ${username}

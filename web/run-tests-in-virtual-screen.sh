@@ -1,8 +1,10 @@
 #!/bin/bash
-rm /tmp/xvfb.auth && touch /tmp/xvfb.auth
+rm /tmp/vnc/xvfb.auth && touch /tmp/vnc/xvfb.auth
 
-x11vnc -storepasswd genny /tmp/vncpass
+x11vnc -storepasswd genny /tmp/vnc/pass
 
-xvfb-run --listen-tcp --server-num 98 -f /tmp/xvfb.auth -s "-screen 0 1280x720x24 -ac" commands.sh
+xvfb-run --listen-tcp --server-num 90 -f /tmp/vnc/xvfb.auth -s "-screen 0 1920x1080x24 -ac" commands.sh
+
+ffmpeg -i /opt/robotframework/reports/$today.mkv -c:v copy -c:a copy -c:s copy /opt/robotframework/reports/$today-fixed.mkv
 
 #results-parse.py /opt/robotframework/reports/output.xml ${SLACK_WEBHOOK}
