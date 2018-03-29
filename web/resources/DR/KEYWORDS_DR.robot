@@ -42,10 +42,6 @@ WF_DR_AUTH_REDIRECT
     sleep  5s
     Location Should Contain   auth
 
-WF_DR_AUTH_KEYCLOAK_ADMIN
-    go to  ${keycloak_url}
-    capture page screenshot  ${screenshot_name}
-
 WF_DR_LOGIN
     [Arguments]   ${username}   ${password}
     wait until page contains element  id=username   5
