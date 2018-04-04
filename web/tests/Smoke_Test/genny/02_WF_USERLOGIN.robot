@@ -4,8 +4,8 @@ Documentation   Tests to verify that the user can login with valid credentials
 Library  ExtendedSelenium2Library
 Library  OperatingSystem
 
-Resource  ../resources/DR/VARIABLE_DR.robot
-Resource  ../resources/DR/KEYWORDS_DR.robot
+Resource  ../../resources/DR/VARIABLE_DR.robot
+Resource  ../../resources/DR/KEYWORDS_DR.robot
 
 Suite Setup  INITIALIZE_SETUP
 Suite Teardown  Terminate System
