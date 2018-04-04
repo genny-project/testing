@@ -105,7 +105,7 @@ WF_DR_LOGIN_USERLOGIN_TEST_INVALID_CREDENTIALS
   WF_DR_LOGIN_ENTERPASSWORD  ${password}
   WF_DR_LOGIN_CLICKLOGIN
   wait until page contains element  css=.alert.alert-error   5
-  capture page screenshot  ${screenshot_name}
+  capture page screenshot  ${screenshot_name}    
 
 WF_DR_OPEN_ADD_LOAD
   click element  css=div:nth-child(2) > div > div:nth-child(1) > div > div > div > div > button

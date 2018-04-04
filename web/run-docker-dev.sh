@@ -1,15 +1,5 @@
 #!/bin/bash
-# PWD=`pwd`
-# if [ -z "${1}" ]; then
-#    WEB_URL="http://localhost:5000"
-# else
-#    WEB_URL="${1}"
-# fi
-# if [ -z "${2}" ]; then
-#    KEYCLOAKURL="http://localhost:8180/auth/admin"
-# else
-#    KEYCLOAKURL="${2}"
-# fi
+
 
 if [ -z "${1}" ]; then
    WEB_URL="https://v2.channel40.com.au"
