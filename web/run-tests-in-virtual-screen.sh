@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if [ -z "$TEST_DIR" ]; then
+    export TEST_DIR=genny
+fi
+
+echo "testing $TEST_DIR"
 
 today=$(date +%s)
 

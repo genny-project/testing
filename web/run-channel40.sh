@@ -13,6 +13,7 @@ echo "testing ${WEB_URL}"
 docker run --rm -d --name robot-dev  \
   -e WEB_URL=$WEB_URL \
   -e BROWSER=chrome  \
+  -e TEST_DIR=channel40 \
   -p 4500:4500 \
   -v $PWD/resources:/opt/robotframework/tests/resources  \
   -v $PWD/tests:/opt/robotframework/tests  \

@@ -8,10 +8,11 @@ $(x11vnc -rfbport 4500 -rfbauth /tmp/vnc/pass -display :90 -forever -auth /tmp/v
 
 if [[ -z "${WAIT_FOR_IT}" ]]; then
   echo "Waiting 30s"
+  echo $TEST_DIR
   sleep 30s
 fi
 
 
 ffmpeg -f x11grab -video_size 1920x1080 -i :90 -c:v libx264 -preset ultrafast -r 12 /opt/robotframework/reports/$today.mkv &
 
-DISPLAY=":90" robot --outputDir /opt/robotframework/reports /opt/robotframework/tests
+DISPLAY=":90" robot --outputDir /opt/robotframework/reports /opt/robotframework/tests/Smoke_Test/$TEST_DIR
