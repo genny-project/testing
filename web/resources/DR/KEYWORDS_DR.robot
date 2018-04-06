@@ -55,21 +55,34 @@ WF_DR_LOGIN
 #fills out profile - date of birth and business location
 WF_DR_FILL_PROFILE
     click element  css=content > div > div > div > div > div > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(1) > div > div > div > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div > div:nth-child(2) > div.react-datepicker-wrapper > div > input
-    click element  css=content > div > div > div > div > div > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(1) > div > div > div > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div > div:nth-child(2) > div.react-datepicker-popper > div > div.react-datepicker__month-container > div.react-datepicker__month > div:nth-child(1) > div.react-datepicker__day.react-datepicker__day--sun.react-datepicker__day--weekend.react-datepicker__day--outside-month
+    sleep  2s
+    click element  css=content > div > div > div > div > div > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(1) > div > div > div > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(4) > div > div:nth-child(2) > div.react-datepicker-popper > div > div.react-datepicker__month-container > div.react-datepicker__month > div:nth-child(1) > div.react-datepicker__day.react-datepicker__day--sun.react-datepicker__day--weekend
+    sleep  2s
 
-    click element  css=#root > div > div > div > main > content > div > div > div > div > div > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div:nth-child(6) > div > div.grid > div > div:nth-child(1) > div > input
-    input text  css=#root > div > div > div > main > content > div > div > div > div > div > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div:nth-child(6) > div > div.grid > div > div:nth-child(1) > div > input  121 Cardigan St, Carlton VIC 3053, Australia
+    click element  css=content > div > div > div > div > div > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div:nth-child(6) > div > div.grid > div > div:nth-child(1) > div > input
+    input text  css=content > div > div > div > div > div > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div:nth-child(6) > div > div.grid > div > div:nth-child(1) > div > input  121 Cardigan St, Carlton VIC 3053, Australia
     Click Element  css=#PlacesAutocomplete__autocomplete-container > div:nth-child(1)
 
 #checks the submit button is clickable then submits
 WF_DR_SUBMIT_PROFILE
-  click element  css=content > div > div > div > div > div > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div > div > div.grid > div > div > div > button
+    click element  css=content > div > div > div > div > div > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div > div > div.grid > div > div > div > button
 
+WF_DR_MOBILE_VERIFICATION
+    wait until page contains element  css=content > div > div > div > div > div > div > div:nth-child(2) > div > div > div:nth-child(2) > div > div > div.passcode > div  10
+    reload page
 
 #scrolls through TAndC and accepts
 WF_DR_TANDC
-    wait until page contains element  css=.input-terms-main
-    Execute JavaScript  document.querySelector('.input-terms-main').scrollHeight = document.querySelector('.input-terms-main').scrollTop + document.querySelector('.input-terms-main').offsetHeight
+    wait until page contains element  css=content > div > div > div > div > div > div > div:nth-child(2) > div > div > div.genny-form > div > div > div > div > div:nth-child(2) > div > div > div.input-terms-main  10
+    sleep  2s
+    Execute JavaScript  document.querySelector('.input-terms-main').scrollTop = document.querySelector('.input-terms-main').scrollHeight - document.querySelector('.input-terms-main').offsetHeight;
+    sleep  5s
+    #reload page
+    click element  css=content > div > div > div > div > div > div > div:nth-child(2) > div > div > div.genny-form > div > div > div > div > div.grid > div > div > div
+
+WF_DR_SUCCESSFUL_TANDC
+    wait until page contains element  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div.tab-holder > div.view-tab.clickable.selected > span.tab-title  30
+    sleep  5s
 
 WF_DR_LOGIN_ENTERUSERNAME
     [Arguments]   ${username}
@@ -88,8 +101,9 @@ WF_DR_LOGIN_CLICKLOGIN
     click element  css=.login-container > .input-detail > .input-submit > button
 
 WF_DR_SUCCESSFUL_LOGIN
-    wait until page contains element  css=.grid.header.main-header > div > div:nth-child(1) > h3  10
+    wait until page contains element  css=content > div > div > div > div > div > div > div:nth-child(1) > div > div > div.grid.header.main-header > div > div:nth-child(1)  10
     capture page screenshot  ${screenshot_name}
+
 
 WF_DR_LOGOUT
     click element  css=div.dropdown > div.dropdown-header > span
@@ -105,7 +119,7 @@ WF_DR_LOGIN_USERLOGIN_TEST_INVALID_CREDENTIALS
   WF_DR_LOGIN_ENTERPASSWORD  ${password}
   WF_DR_LOGIN_CLICKLOGIN
   wait until page contains element  css=.alert.alert-error   5
-  capture page screenshot  ${screenshot_name}    
+  capture page screenshot  ${screenshot_name}
 
 WF_DR_OPEN_ADD_LOAD
   click element  css=div:nth-child(2) > div > div:nth-child(1) > div > div > div > div > button
