@@ -5,6 +5,7 @@ Library   ExtendedSelenium2Library
 Library   OperatingSystem
 
 Resource  ./VARIABLE_DR.robot
+Resource  ../util/openBrowser.robot
 
 
 *** Variables ***
@@ -14,11 +15,12 @@ ${screenshot_name}  WF_DR_{index}.png
 *** Keywords ***
 Initialize System
     Log To Console  opening ${web_url}
-    open browser  ${web_url}  ${browser}
-    Set Window Size  1920  1080
+    Open Browser To Home Page(Local)  BROWSER=IE  BROWSER VERSION=7.0  OS=Windows  OS VERSION=XP
+    # open browser  ${web_url}  ${browser}
+    # Set Window Size  1920  1080
     set screenshot directory  ${screenshot_path}
     capture page screenshot  ${screenshot_name}
-    sleep  30s
+    # sleep  30s
 
 WF_DR_REGISTER
     wait until page contains element  css=.button-register  5
@@ -207,5 +209,5 @@ WF_DR_ADD_LOAD
 
 
 Terminate System
-    Warn Any Javascript Errors
+    # Warn Any Javascript Errors
     close browser

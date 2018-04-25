@@ -6,4 +6,3 @@ else
 fi
 
 docker build -t gennyproject/robot:${version} .
-
