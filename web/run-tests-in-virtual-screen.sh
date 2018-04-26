@@ -24,7 +24,7 @@ else
   export OS= ${OS:="Windows"}
   export OS_VERSION= ${OS_VERSION:="10"}
 
-  BrowserStackLocal --force-local --daemon start --key ${BROWSERSTACK_TOKEN}
+  BrowserStackLocal --force-local --daemon start --key ${BROWSERSTACK_TOKEN} 
   robot --outputDir /opt/robotframework/reports /opt/robotframework/tests/Smoke_Test/$TEST_DIR
     BrowserStackLocal --daemon stop
 

@@ -11,20 +11,20 @@ Resource  ../util/openBrowser.robot
 *** Variables ***
 ${screenshot_path}  /opt/robotframework/reports/screenshots
 ${screenshot_name}  WF_DR_{index}.png
-${BROWSER}=    Evaluate os.environ.get("BROWSER","chrome")
-${BROWSER VERSION}=    Evaluate os.environ.get("BROWSER_VERSION"," 16.0")
-${OS}=    Evaluate os.environ.get("OS","Windows")
-${OS VERSION}=    Evaluate os.environ.get("OS_VERSION","Edge")
-${BROWSERSTACK_USER}=    Evaluate os.environ.get("BROWSERSTACK_USER", false)
+${BROWSER}=    Evaluate    os.environ.get("BROWSER","chrome")
+${BROWSER VERSION}=    Evaluate    os.environ.get("BROWSER_VERSION", "16.0")
+${OS}=    Evaluate    os.environ.get("OS","Windows")
+${OS VERSION}=    Evaluate    os.environ.get("OS_VERSION","Edge")
+${BROWSERSTACK_USER}=    Evaluate  os.environ.get("BROWSERSTACK_USER", false)
 
 *** Keywords ***
 Initialize System
     Log To Console  opening ${web_url}
+    Log To Console  ${BROWSERSTACK_USER}
 
     Run Keyword If  '${BROWSERSTACK_USER}'  Open Browser To Home Page(Local)
     Run Keyword Unless  '${BROWSERSTACK_USER}'  Open Browser To Home Page  BROWSER=${BROWSER}  BROWSER VERSION=${BROWSER VERSION}  OS=${OS}  OS VERSION=${OS VERSION}
 
-    
     set screenshot directory  ${screenshot_path}
     capture page screenshot  ${screenshot_name}
 
@@ -146,10 +146,10 @@ WF_DR_ADD_LOAD
   Click Element  css=#downshift-1-item-10
   capture page screenshot  ${screenshot_name}
 
-  input text  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(1) > div > div > div > div > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div > input[type="text"]  100
-  input text  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(1) > div > div > div > div > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div:nth-child(2) > div > input[type="text"]  100
-  input text  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(1) > div > div > div > div > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div:nth-child(3) > div > input[type="text"]  100
-  input text  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(1) > div > div > div > div > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div:nth-child(4) > div > input[type="text"]  100
+  input text  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(1) > div > div > div > div > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div > div.input.input-text > input  100
+  input text  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(1) > div > div > div > div > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div:nth-child(2) > div > div.input.input-text > input  100
+  input text  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(1) > div > div > div > div > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div:nth-child(3) > div > div.input.input-text > input  100
+  input text  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(1) > div > div > div > div > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > div:nth-child(4) > div > div.input.input-text > input  100
   capture page screenshot  ${screenshot_name}
 
   input text  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(1) > div > div > div > div > div:nth-child(2) > div:nth-child(4) > div > input[type="text"]  Test Reference
@@ -163,13 +163,15 @@ WF_DR_ADD_LOAD
 
   input text  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div:nth-child(3) > div > div:nth-child(2) > div.react-datepicker-wrapper > div > input  2018-01-01 00:00
   capture page screenshot  ${screenshot_name}
-  click element  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div:nth-child(3) > div > div:nth-child(2) > div.react-datepicker-popper > div > div.react-datepicker__time-container > div.react-datepicker__time > div > ul > li.react-datepicker__time-list-item.react-datepicker__time-list-item--selected
+  mouse down  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div:nth-child(3) > div > div:nth-child(2) > div.react-datepicker-popper > div > div.react-datepicker__time-container > div.react-datepicker__time > div > ul > li.react-datepicker__time-list-item.react-datepicker__time-list-item--selected
+  sleep  1s
+  mouse up  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div:nth-child(3) > div > div:nth-child(2) > div.react-datepicker-popper > div > div.react-datepicker__time-container > div.react-datepicker__time > div > ul > li.react-datepicker__time-list-item.react-datepicker__time-list-item--selected
   capture page screenshot  ${screenshot_name}
 
   input text  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div:nth-child(4) > div > div.grid > div > div:nth-child(1) > #PlacesAutocomplete__root > input[type="text"]  1 George St, Sydney
   sleep  2s
   capture page screenshot  ${screenshot_name}
-  Click Element  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div:nth-child(4) > div > div.grid > div > div:nth-child(1) > #PlacesAutocomplete__root > #PlacesAutocomplete__autocomplete-container > div:nth-child(1)
+  Click Element  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div:nth-child(4) > div > div.grid > div > div:nth-child(1) > div > div > div:nth-child(1)
   capture page screenshot  ${screenshot_name}
 
   Click Element  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div > div > div:nth-child(2) > div:nth-child(5) > div > div:nth-child(2) > div.react-datepicker-wrapper > div > input
@@ -177,28 +179,6 @@ WF_DR_ADD_LOAD
 
   Click Element  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div > div > div.grid > div > div:nth-child(2) > div > button
   capture page screenshot  ${screenshot_name}
-
-
-  reload page
-  sleep  10s
-  capture page screenshot  ${screenshot_name}
-  Click Element  css=content > div > div > div > div > div:nth-child(1) > div > div > div:nth-child(2) > div > div > div > ul > li:nth-child(1) > div > span.icon-small.tree-view-icon.arrow.clickable.close > i
-  capture page screenshot  ${screenshot_name}
-  Click Element  css=content > div > div > div > div > div:nth-child(1) > div > div > div:nth-child(2) > div > div > div > ul > li:nth-child(1) > ul > li:last-child > div > span > span
-  capture page screenshot  ${screenshot_name}
-
-  sleep  5s
-
-  Click Element  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div:nth-child(2) > div > div > div > div > div.grid > div > div:nth-child(2) > div > button
-  capture page screenshot  ${screenshot_name}
-
-  sleep  10s
-
-  capture page screenshot  ${screenshot_name}
-
-  reload page
-
-  sleep 10s
 
   Element Text Should Be  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div.tab-container-content > div > div > div.bucket-column.bucket-number-1 > div.bucket.size-lg > div > div > div > div > div > div.grid > div:nth-child(1) > div:nth-child(2) > h5  Test Load
   Element Text Should Be  css=content > div > div > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div:nth-child(2) > div > div:nth-child(2) > div > div > div.tab-container-content > div > div > div.bucket-column.bucket-number-1 > div.bucket.size-lg > div > div > div > div > div > div.grid > div:nth-child(1) > div:nth-child(2) > div:nth-child(2) > div > div > div:nth-child(1) > span  $1,000

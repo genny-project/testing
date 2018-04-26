@@ -5,11 +5,12 @@ Library           ExtendedSelenium2Library
 
 *** Variables ***
 ${URL}            %{WEB_URL}
+${browser}     chrome
 
 *** Keywords ***
 Open Browser To Home Page(Local)
 	Log To Console  opening ${web_url}
-	open browser  ${web_url}  ${browser}
+	open browser  ${URL}  ${browser}
 	Set Window Size  1920  1080
 	set screenshot directory  ${screenshot_path}
 	capture page screenshot  ${screenshot_name}
