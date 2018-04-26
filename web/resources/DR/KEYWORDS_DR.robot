@@ -11,16 +11,22 @@ Resource  ../util/openBrowser.robot
 *** Variables ***
 ${screenshot_path}  /opt/robotframework/reports/screenshots
 ${screenshot_name}  WF_DR_{index}.png
+${BROWSER}=    Evaluate os.environ.get("BROWSER","chrome")
+${BROWSER VERSION}=    Evaluate os.environ.get("BROWSER_VERSION"," 16.0")
+${OS}=    Evaluate os.environ.get("OS","Windows")
+${OS VERSION}=    Evaluate os.environ.get("OS_VERSION","Edge")
+${BROWSERSTACK_USER}=    Evaluate os.environ.get("BROWSERSTACK_USER", false)
 
 *** Keywords ***
 Initialize System
     Log To Console  opening ${web_url}
-    Open Browser To Home Page(Local)  BROWSER=IE  BROWSER VERSION=7.0  OS=Windows  OS VERSION=XP
-    # open browser  ${web_url}  ${browser}
-    # Set Window Size  1920  1080
+
+    Run Keyword If  '${BROWSERSTACK_USER}'  Open Browser To Home Page(Local)
+    Run Keyword Unless  '${BROWSERSTACK_USER}'  Open Browser To Home Page  BROWSER=${BROWSER}  BROWSER VERSION=${BROWSER VERSION}  OS=${OS}  OS VERSION=${OS VERSION}
+
+    
     set screenshot directory  ${screenshot_path}
     capture page screenshot  ${screenshot_name}
-    # sleep  30s
 
 WF_DR_REGISTER
     wait until page contains element  css=.button-register  5

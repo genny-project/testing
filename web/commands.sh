@@ -7,9 +7,11 @@ $(x11vnc -rfbport 4500 -rfbauth /tmp/vnc/pass -display :90 -forever -auth /tmp/v
 
 
 if [[ -z "${WAIT_FOR_IT}" ]]; then
-  echo "Waiting 120s"
+  echo "not waiting"
+else
+  echo "Waiting 30s"
   echo $TEST_DIR
-  sleep 120s
+  sleep 30s
 fi
 
 
