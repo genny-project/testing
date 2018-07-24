@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180501 03:54:18.710" generator="Robot 3.0.2 (Python 2.7.14 on linux2)">
+<suite source="/opt/robotframework/tests/Smoke_Test" id="s1" name="Smoke Test">
+<suite source="/opt/robotframework/tests/Smoke_Test/00_genny" id="s1-s1" name="00 Genny">
+<suite source="/opt/robotframework/tests/Smoke_Test/00_genny/02_WF_USERLOGIN.robot" id="s1-s1-s1" name="02 WF USERLOGIN">
+<kw type="setup" name="INITIALIZE_SETUP">
+<kw name="Initialize System" library="KEYWORDS_DR">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>opening ${web_url}</arg>
+</arguments>
+<status status="PASS" endtime="20180501 03:54:18.990" starttime="20180501 03:54:18.990"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${BROWSERSTACK_USER}</arg>
+</arguments>
+<status status="PASS" endtime="20180501 03:54:18.992" starttime="20180501 03:54:18.991"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${BROWSERSTACK_USER}'</arg>
+<arg>Open Browser To Home Page(Local)</arg>
+</arguments>
+<kw name="Open Browser To Home Page(Local)" library="openBrowser">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>opening ${web_url}</arg>
+</arguments>
+<status status="PASS" endtime="20180501 03:54:18.994" starttime="20180501 03:54:18.993"></status>
+</kw>
+<kw name="Open Browser" library="ExtendedSelenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>${URL}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20180501 03:54:18.995" level="INFO">Opening browser 'chrome' to base url 'http://app-staging.outcome-hub.com'</msg>
+<status status="PASS" endtime="20180501 03:54:27.101" starttime="20180501 03:54:18.995"></status>
+</kw>
+<kw name="Set Window Size" library="ExtendedSelenium2Library">
+<doc>Sets the `width` and `height` of the current window to the specified values.</doc>
+<arguments>
+<arg>1920</arg>
+<arg>1080</arg>
+</arguments>
+<status status="PASS" endtime="20180501 03:54:27.218" starttime="20180501 03:54:27.101"></status>
+</kw>
+<kw name="Set Screenshot Directory" library="ExtendedSelenium2Library">
+<doc>Sets the root output directory for captured screenshots.</doc>
+<arguments>
+<arg>${screenshot_path}</arg>
+</arguments>
+<status status="PASS" endtime="20180501 03:54:27.223" starttime="20180501 03:54:27.218"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="ExtendedSelenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>${screenshot_name}</arg>
+</arguments>
+<msg timestamp="20180501 03:54:27.431" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/02_WF_USERLOGIN/WF_USERLOGIN1.png"&gt;&lt;img src="screenshots/02_WF_USERLOGIN/WF_USERLOGIN1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180501 03:54:27.431" starttime="20180501 03:54:27.223"></status>
+</kw>
+<status status="PASS" endtime="20180501 03:54:27.431" starttime="20180501 03:54:18.993"></status>
+</kw>
+<status status="PASS" endtime="20180501 03:54:27.431" starttime="20180501 03:54:18.992"></status>
+</kw>
+<kw name="Run Keyword Unless" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is false.</doc>
+<arguments>
+<arg>'${BROWSERSTACK_USER}'</arg>
+<arg>Open Browser To Home Page</arg>
+<arg>BROWSER=${BROWSER}</arg>
+<arg>BROWSER VERSION=${BROWSER VERSION}</arg>
+<arg>OS=${OS}</arg>
+<arg>OS VERSION=${OS VERSION}</arg>
+</arguments>
+<status status="PASS" endtime="20180501 03:54:27.432" starttime="20180501 03:54:27.432"></status>
+</kw>
+<kw name="Set Screenshot Directory" library="ExtendedSelenium2Library">
+<doc>Sets the root output directory for captured screenshots.</doc>
+<arguments>
+<arg>${screenshot_path}</arg>
+</arguments>
+<status status="PASS" endtime="20180501 03:54:27.436" starttime="20180501 03:54:27.432"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="ExtendedSelenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>${screenshot_name}</arg>
+</arguments>
+<msg timestamp="20180501 03:54:27.639" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/02_WF_USERLOGIN/WF_USERLOGIN2.png"&gt;&lt;img src="screenshots/02_WF_USERLOGIN/WF_USERLOGIN2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180501 03:54:27.639" starttime="20180501 03:54:27.436"></status>
+</kw>
+<status status="PASS" endtime="20180501 03:54:27.639" starttime="20180501 03:54:18.989"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Directory Should Exist</arg>
+<arg>${screenshot_path}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<kw name="Directory Should Exist" library="OperatingSystem">
+<doc>Fails unless the given path points to an existing directory.</doc>
+<arguments>
+<arg>${screenshot_path}</arg>
+</arguments>
+<msg timestamp="20180501 03:54:27.642" html="yes" level="INFO">Directory '&lt;a href="file:///opt/robotframework/reports/screenshots/02_WF_USERLOGIN"&gt;/opt/robotframework/reports/screenshots/02_WF_USERLOGIN&lt;/a&gt;' exists.</msg>
+<status status="PASS" endtime="20180501 03:54:27.642" starttime="20180501 03:54:27.640"></status>
+</kw>
+<msg timestamp="20180501 03:54:27.643" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180501 03:54:27.643" starttime="20180501 03:54:27.640"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${status}</arg>
+</arguments>
+<msg timestamp="20180501 03:54:27.643" level="INFO">True</msg>
+<status status="PASS" endtime="20180501 03:54:27.644" starttime="20180501 03:54:27.643"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${status}' == 'True'</arg>
+<arg>Empty Directory</arg>
+<arg>${screenshot_path}</arg>
+</arguments>
+<kw name="Empty Directory" library="OperatingSystem">
+<doc>Deletes all the content from the given directory.</doc>
+<arguments>
+<arg>${screenshot_path}</arg>
+</arguments>
+<msg timestamp="20180501 03:54:27.645" html="yes" level="INFO">Listing contents of directory '&lt;a href="file:///opt/robotframework/reports/screenshots/02_WF_USERLOGIN"&gt;/opt/robotframework/reports/screenshots/02_WF_USERLOGIN&lt;/a&gt;'.</msg>
+<msg timestamp="20180501 03:54:27.751" html="yes" level="INFO">Emptied directory '&lt;a href="file:///opt/robotframework/reports/screenshots/02_WF_USERLOGIN"&gt;/opt/robotframework/reports/screenshots/02_WF_USERLOGIN&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20180501 03:54:27.751" starttime="20180501 03:54:27.645"></status>
+</kw>
+<status status="PASS" endtime="20180501 03:54:27.751" starttime="20180501 03:54:27.644"></status>
+</kw>
+<kw name="Set Screenshot Directory" library="ExtendedSelenium2Library">
+<doc>Sets the root output directory for captured screenshots.</doc>
+<arguments>
+<arg>${screenshot_path}</arg>
+</arguments>
+<status status="PASS" endtime="20180501 03:54:27.755" starttime="20180501 03:54:27.752"></status>
+</kw>
+<status status="PASS" endtime="20180501 03:54:27.755" starttime="20180501 03:54:18.989"></status>
+</kw>
+<test id="s1-s1-s1-t1" name="01_WF_BUCKETS_LOGIN">
+<kw name="WF_DR_AUTH_REDIRECT" library="KEYWORDS_DR">
+<kw name="Go To" library="ExtendedSelenium2Library">
+<doc>Navigates the active browser instance to the provided URL.</doc>
+<arguments>
+<arg>${web_url}</arg>
+</arguments>
+<msg timestamp="20180501 03:54:27.757" level="INFO">Opening url 'http://app-staging.outcome-hub.com'</msg>
+<status status="PASS" endtime="20180501 03:54:28.955" starttime="20180501 03:54:27.757"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5s</arg>
+</arguments>
+<msg timestamp="20180501 03:54:33.957" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" endtime="20180501 03:54:33.957" starttime="20180501 03:54:28.955"></status>
+</kw>
+<kw name="Location Should Contain" library="ExtendedSelenium2Library">
+<doc>Verifies that current URL contains `expected`.</doc>
+<arguments>
+<arg>auth</arg>
+</arguments>
+<msg timestamp="20180501 03:54:34.526" level="INFO">Current location contains 'auth'.</msg>
+<status status="PASS" endtime="20180501 03:54:34.526" starttime="20180501 03:54:33.957"></status>
+</kw>
+<status status="PASS" endtime="20180501 03:54:34.526" starttime="20180501 03:54:27.756"></status>
+</kw>
+<kw name="WF_DR_LOGIN" library="KEYWORDS_DR">
+<arguments>
+<arg>${username_dr}</arg>
+<arg>${password_dr}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="ExtendedSelenium2Library">
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>5</arg>
+</arguments>
+<status status="PASS" endtime="20180501 03:54:34.587" starttime="20180501 03:54:34.527"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2s</arg>
+</arguments>
+<msg timestamp="20180501 03:54:36.588" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" endtime="20180501 03:54:36.589" starttime="20180501 03:54:34.588"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="ExtendedSelenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>${screenshot_name}</arg>
+</arguments>
+<msg timestamp="20180501 03:54:36.759" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/02_WF_USERLOGIN/WF_USERLOGIN3.png"&gt;&lt;img src="screenshots/02_WF_USERLOGIN/WF_USERLOGIN3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180501 03:54:36.759" starttime="20180501 03:54:36.589"></status>
+</kw>
+<kw name="WF_DR_LOGIN_ENTERUSERNAME" library="KEYWORDS_DR">
+<arguments>
+<arg>${username}</arg>
+</arguments>
+<kw name="Input Text" library="ExtendedSelenium2Library">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=username</arg>
+<arg>${username}</arg>
+</arguments>
+<msg timestamp="20180501 03:54:36.760" level="INFO">Typing text 'user1' into text field 'id=username'</msg>
+<status status="PASS" endtime="20180501 03:54:36.930" starttime="20180501 03:54:36.759"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20180501 03:54:37.931" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20180501 03:54:37.931" starttime="20180501 03:54:36.930"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="ExtendedSelenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>${screenshot_name}</arg>
+</arguments>
+<msg timestamp="20180501 03:54:38.142" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/02_WF_USERLOGIN/WF_USERLOGIN4.png"&gt;&lt;img src="screenshots/02_WF_USERLOGIN/WF_USERLOGIN4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180501 03:54:38.142" starttime="20180501 03:54:37.932"></status>
+</kw>
+<status status="PASS" endtime="20180501 03:54:38.142" starttime="20180501 03:54:36.759"></status>
+</kw>
+<kw name="WF_DR_LOGIN_ENTERPASSWORD" library="KEYWORDS_DR">
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<kw name="Input Password" library="ExtendedSelenium2Library">
+<doc>Types the given password into text field identified by `locator`.</doc>
+<arguments>
+<arg>id=password</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20180501 03:54:38.143" level="INFO">Typing password into text field 'id=password'</msg>
+<status status="PASS" endtime="20180501 03:54:38.457" starttime="20180501 03:54:38.143"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>1s</arg>
+</arguments>
+<msg timestamp="20180501 03:54:39.458" level="INFO">Slept 1 second</msg>
+<status status="PASS" endtime="20180501 03:54:39.458" starttime="20180501 03:54:38.457"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="ExtendedSelenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+<arg>${screenshot_name}</arg>
+</arguments>
+<msg timestamp="20180501 03:54:39.636" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/02_WF_USERLOGIN/WF_USERLOGIN5.png"&gt;&lt;img src="screenshots/02_WF_USERLOGIN/WF_USERLOGIN5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180501 03:54:39.636" starttime="20180501 03:54:39.459"></status>
+</kw>
+<status status="PASS" endtime="20180501 03:54:39.637" starttime="20180501 03:54:38.142"></status>
+</kw>
+<kw name="WF_DR_LOGIN_CLICKLOGIN" library="KEYWORDS_DR">
+<kw name="Wait Until Element Is Enabled" library="ExtendedSelenium2Library">
+<doc>Waits until element specified with `locator` is enabled.</doc>
+<arguments>
+<arg>css=.login-container &gt; .input-detail &gt; .input-submit &gt; button</arg>
+<arg>10</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="ExtendedSelenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20180501 03:54:54.844" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/02_WF_USERLOGIN/selenium-screenshot-1.png"&gt;&lt;img src="screenshots/02_WF_USERLOGIN/selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180501 03:54:54.844" starttime="20180501 03:54:54.646"></status>
+</kw>
+<msg timestamp="20180501 03:54:54.845" level="FAIL">Element locator 'css=.login-container &gt; .input-detail &gt; .input-submit &gt; button' did not match any elements after 10 seconds</msg>
+<status status="FAIL" endtime="20180501 03:54:54.846" starttime="20180501 03:54:39.637"></status>
+</kw>
+<status status="FAIL" endtime="20180501 03:54:54.846" starttime="20180501 03:54:39.637"></status>
+</kw>
+<status status="FAIL" endtime="20180501 03:54:54.846" starttime="20180501 03:54:34.527"></status>
+</kw>
+<tags>
+<tag>Buckets</tag>
+</tags>
+<status status="FAIL" endtime="20180501 03:54:54.846" critical="yes" starttime="20180501 03:54:27.755">Element locator 'css=.login-container &gt; .input-detail &gt; .input-submit &gt; button' did not match any elements after 10 seconds</status>
+</test>
+<test id="s1-s1-s1-t2" name="02_WF_BUCKETS_NEWLOAD">
+<kw name="WF_DR_OPEN_ADD_LOAD" library="KEYWORDS_DR">
+<kw name="Click Element" library="ExtendedSelenium2Library">
+<doc>Clicks an element identified by ``locator``.</doc>
+<arguments>
+<arg>css=div:nth-child(2) &gt; div &gt; div:nth-child(1) &gt; div &gt; div &gt; div &gt; div &gt; button</arg>
+</arguments>
+<msg timestamp="20180501 03:54:54.848" level="INFO">Clicking element 'css=div:nth-child(2) &gt; div &gt; div:nth-child(1) &gt; div &gt; div &gt; div &gt; div &gt; button'.</msg>
+<kw name="Capture Page Screenshot" library="ExtendedSelenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20180501 03:55:10.066" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshots/02_WF_USERLOGIN/selenium-screenshot-2.png"&gt;&lt;img src="screenshots/02_WF_USERLOGIN/selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20180501 03:55:10.066" starttime="20180501 03:55:09.875"></status>
+</kw>
+<msg timestamp="20180501 03:55:10.068" level="FAIL">ValueError: Element locator 'css=div:nth-child(2) &gt; div &gt; div:nth-child(1) &gt; div &gt; div &gt; div &gt; div &gt; button' did not match any elements.</msg>
+<status status="FAIL" endtime="20180501 03:55:10.068" starttime="20180501 03:54:54.848"></status>
+</kw>
+<status status="FAIL" endtime="20180501 03:55:10.068" starttime="20180501 03:54:54.847"></status>
+</kw>
+<tags>
+<tag>Buckets</tag>
+</tags>
+<status status="FAIL" endtime="20180501 03:55:10.068" critical="yes" starttime="20180501 03:54:54.847">ValueError: Element locator 'css=div:nth-child(2) &gt; div &gt; div:nth-child(1) &gt; div &gt; div &gt; div &gt; div &gt; button' did not match any elements.</status>
+</test>
+<test id="s1-s1-s1-t3" name="03_WF_BUCKETS_CHECKLOAD">
+<kw name="WF_DR_CHECK_LOAD">
+<msg timestamp="20180501 03:55:10.076" level="FAIL">No keyword with name 'WF_DR_CHECK_LOAD' found.</msg>
+<status status="FAIL" endtime="20180501 03:55:10.077" starttime="20180501 03:55:10.076"></status>
+</kw>
+<tags>
+<tag>Buckets</tag>
+</tags>
+<status status="FAIL" endtime="20180501 03:55:10.077" critical="yes" starttime="20180501 03:55:10.071">No keyword with name 'WF_DR_CHECK_LOAD' found.</status>
+</test>
+<kw type="teardown" name="Terminate System" library="KEYWORDS_DR">
+<kw name="Close Browser" library="ExtendedSelenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20180501 03:55:10.147" starttime="20180501 03:55:10.080"></status>
+</kw>
+<status status="PASS" endtime="20180501 03:55:10.147" starttime="20180501 03:55:10.080"></status>
+</kw>
+<doc>Tests to verify that the user can login with valid credentials</doc>
+<status status="FAIL" endtime="20180501 03:55:10.148" starttime="20180501 03:54:18.742"></status>
+</suite>
+<status status="FAIL" endtime="20180501 03:55:10.160" starttime="20180501 03:54:18.740"></status>
+</suite>
+<status status="FAIL" endtime="20180501 03:55:10.165" starttime="20180501 03:54:18.714"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="3" pass="0">Critical Tests</stat>
+<stat fail="3" pass="0">All Tests</stat>
+</total>
+<tag>
+<stat fail="3" pass="0">Buckets</stat>
+</tag>
+<suite>
+<stat fail="3" id="s1" name="Smoke Test" pass="0">Smoke Test</stat>
+<stat fail="3" id="s1-s1" name="00 Genny" pass="0">Smoke Test.00 Genny</stat>
+<stat fail="3" id="s1-s1-s1" name="02 WF USERLOGIN" pass="0">Smoke Test.00 Genny.02 WF USERLOGIN</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
